@@ -1,7 +1,7 @@
-C:\Users\Sander\workspace\GCM-mavenized\src\main\java\mcm\notification\services\gcm\SendAllMessagesServlet.java
-C:\Users\Sander\workspace\GCM-mavenized\src\main\java\mcm\notification\services\gcm\ApiKeyInitializer.java
-C:\Users\Sander\workspace\GCM-mavenized\src\main\java\mcm\notification\services\gcm\BaseServlet.java
-C:\Users\Sander\workspace\GCM-mavenized\src\main\java\mcm\notification\services\gcm\RegisterServlet.java
-C:\Users\Sander\workspace\GCM-mavenized\src\main\java\mcm\notification\services\gcm\Datastore.java
-C:\Users\Sander\workspace\GCM-mavenized\src\main\java\mcm\notification\services\gcm\UnregisterServlet.java
-C:\Users\Sander\workspace\GCM-mavenized\src\main\java\mcm\notification\services\gcm\HomeServlet.java
+C:\Users\Sander\GCMServer\GCM-mavenized\src\main\java\mcm\notification\services\gcm\Datastore.java
+C:\Users\Sander\GCMServer\GCM-mavenized\src\main\java\mcm\notification\services\gcm\HomeServlet.java
+C:\Users\Sander\GCMServer\GCM-mavenized\src\main\java\mcm\notification\services\gcm\SendAllMessagesServlet.java
+C:\Users\Sander\GCMServer\GCM-mavenized\src\main\java\mcm\notification\services\gcm\UnregisterServlet.java
+C:\Users\Sander\GCMServer\GCM-mavenized\src\main\java\mcm\notification\services\gcm\RegisterServlet.java
+C:\Users\Sander\GCMServer\GCM-mavenized\src\main\java\mcm\notification\services\gcm\ApiKeyInitializer.java
+C:\Users\Sander\GCMServer\GCM-mavenized\src\main\java\mcm\notification\services\gcm\BaseServlet.java

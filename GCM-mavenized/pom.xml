@@ -88,7 +88,7 @@
           <source>1.8</source>
           <target>1.8</target>
           <compilerArguments>
-            <endorseddirs>C:\Users\Sander\GCMServer\libs</endorseddirs>
+            <endorseddirs>${basedir}</endorseddirs>
           </compilerArguments>
         </configuration>
      </plugin>
