@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -jar GCMServer/target/dependency/* --port $PORT GCMServer/target/*.war
+web: java $JAVA_OPTS -jar gcm-server.jar --port $PORT GCMServer/target/*.war
