@@ -32,7 +32,7 @@ import javax.servlet.ServletContextListener;
  */ 
 public class ApiKeyInitializer implements ServletContextListener {
 
-  static final String ATTRIBUTE_ACCESS_KEY = "AIzaSyABdajGotAe3ho4wYG-Jdo5O31721U9wCc";
+  static final String ATTRIBUTE_ACCESS_KEY = "apiKey";
 
   private static final String PATH = "/api.key";
 
@@ -43,7 +43,7 @@ public class ApiKeyInitializer implements ServletContextListener {
     logger.info("Reading " + PATH + " from resources (probably from " +
         "WEB-INF/classes");
     //String key = getKey();
-    String key = "AIzaSyCIjNKegu48VL1twXQXeF9MbYJfB0mSQ34";
+    String key = "AIzaSyABdajGotAe3ho4wYG-Jdo5O31721U9wCc";
     event.getServletContext().setAttribute(ATTRIBUTE_ACCESS_KEY, key);
   }
 
