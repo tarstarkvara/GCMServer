@@ -72,7 +72,7 @@ public class SendAllMessagesServlet extends BaseServlet {
 	  String id = req.getParameter("eesnimi");
 	  String id2 = req.getParameter("henrile");
 	  String id3 = req.getParameter("kulule");
-      if (id != "") {
+      if (id == null && id2 == null ) {
         // send a single message using plain post
         String registrationId = devices.get(0);
         Message message = new Message.Builder()
@@ -82,9 +82,9 @@ public class SendAllMessagesServlet extends BaseServlet {
         .build();
         Result result = sender.send(message, registrationId, 5);
         results = Arrays.asList(result);
-      } else if (id2 != "") {
+      } else if (id2 != null && id == null) {
         // send a single message using plain post
-        String registrationId = devices.get(0);
+        String registrationId = devices.get(1);
         Message message = new Message.Builder()
 		.timeToLive(3)
         .delayWhileIdle(true)
@@ -92,9 +92,9 @@ public class SendAllMessagesServlet extends BaseServlet {
         .build();
         Result result = sender.send(message, registrationId, 5);
         results = Arrays.asList(result);
-      } else if (id3 != "") {
+      } else if (id3 != null && id == null) {
         // send a single message using plain post
-        String registrationId = devices.get(0);
+        String registrationId = devices.get(2);
         Message message = new Message.Builder()
 		.timeToLive(3)
         .delayWhileIdle(true)
