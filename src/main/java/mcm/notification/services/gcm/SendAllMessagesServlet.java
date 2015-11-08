@@ -24,6 +24,7 @@ import com.google.android.gcm.server.Sender;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.ArrayList;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -66,7 +67,7 @@ public class SendAllMessagesServlet extends BaseServlet {
     if (devices.isEmpty()) {
       status.append("Message ignored as there is no device registered!");
     } else {
-      List<Result> results;
+      List<Result> results = new ArrayList<Result>();
       // NOTE: check below is for demonstration purposes; a real application
       // could always send a multicast, even for just one recipient
 	  String id = req.getParameter("To Device 1");
@@ -85,24 +86,32 @@ public class SendAllMessagesServlet extends BaseServlet {
         results = Arrays.asList(result);
       } else if (id2 != null) {
         // send a single message using plain post
-        String registrationId = devices.get(1);
-        Message message = new Message.Builder()
-		.timeToLive(3)
-        .delayWhileIdle(true)
-        .addData("message", id2)
-        .build();
-        Result result = sender.send(message, registrationId, 5);
-        results = Arrays.asList(result);
+		try {
+			String registrationId = devices.get(1);
+			Message message = new Message.Builder()
+			.timeToLive(3)
+			.delayWhileIdle(true)
+			.addData("message", id2)
+			.build();
+			Result result = sender.send(message, registrationId, 5);
+			results = Arrays.asList(result);
+		} catch (IndexOutOfBoundsException e){
+		    status.append("Not so many devices registered #");
+		}
       } else if (id3 != null) {
         // send a single message using plain post
-        String registrationId = devices.get(2);
-        Message message = new Message.Builder()
-		.timeToLive(3)
-        .delayWhileIdle(true)
-        .addData("message", id3)
-        .build();
-        Result result = sender.send(message, registrationId, 5);
-        results = Arrays.asList(result);
+		try{
+			String registrationId = devices.get(2);
+			Message message = new Message.Builder()
+			.timeToLive(3)
+			.delayWhileIdle(true)
+			.addData("message", id3)
+			.build();
+			Result result = sender.send(message, registrationId, 5);
+			results = Arrays.asList(result);
+		}catch (IndexOutOfBoundsException e) {
+		    status.append("Not so many devices registered #");
+		}
       }else {
         // send a multicast message using JSON
         Message message = new Message.Builder()
