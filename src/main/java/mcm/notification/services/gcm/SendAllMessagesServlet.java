@@ -69,13 +69,14 @@ public class SendAllMessagesServlet extends BaseServlet {
       List<Result> results;
       // NOTE: check below is for demonstration purposes; a real application
       // could always send a multicast, even for just one recipient
+	  String id = req.getParameter("eesnimi");
       if (devices.size() == 1) {
         // send a single message using plain post
         String registrationId = devices.get(0);
         Message message = new Message.Builder()
 		.timeToLive(3)
         .delayWhileIdle(true)
-        .addData("message", "message is created at builder")
+        .addData("message", id)
         .build();
         Result result = sender.send(message, registrationId, 5);
         results = Arrays.asList(result);
@@ -84,7 +85,7 @@ public class SendAllMessagesServlet extends BaseServlet {
         Message message = new Message.Builder()
 		.timeToLive(3)
         .delayWhileIdle(true)
-        .addData("message", "message is created at builder")
+        .addData("message", id)
         .build();
         MulticastResult result = sender.send(message, devices, 5);
         results = result.getResults();
