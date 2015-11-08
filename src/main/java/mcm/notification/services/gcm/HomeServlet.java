@@ -57,7 +57,7 @@ public class HomeServlet extends BaseServlet {
     } else {
       out.print("<h2>" + devices.size() + " device(s) registered!</h2>");
       out.print("<form name='form_1' method='POST' action='sendAll'>");
-	  out.print("<input type='text' name='To device 1'/>");
+	  out.print("<input type='text' name='To Device 1'/>");
       out.print("<input type='submit' value='Send To Device 1' />");
       out.print("</form>");
 	  out.print("<form name='form_2' method='POST' action='sendAll'>");
@@ -69,7 +69,7 @@ public class HomeServlet extends BaseServlet {
       out.print("<input type='submit' value='Send To Device 3' />");
       out.print("</form>");
 	  out.print("<form name='form_all' method='POST' action='sendAll'>");
-	  out.print("<input type='text' name='kulule'/>");
+	  out.print("<input type='text' name='To All Devices'/>");
       out.print("<input type='submit' value='Send To All Devices' />");
       out.print("</form>");
     }
