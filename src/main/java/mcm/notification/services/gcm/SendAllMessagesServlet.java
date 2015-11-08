@@ -72,7 +72,7 @@ public class SendAllMessagesServlet extends BaseServlet {
 	  String id = req.getParameter("eesnimi");
 	  String id2 = req.getParameter("henrile");
 	  String id3 = req.getParameter("kulule");
-      if (id == null && id2 == null ) {
+      if (id != null && id2 == null ) {
         // send a single message using plain post
         String registrationId = devices.get(0);
         Message message = new Message.Builder()
@@ -88,7 +88,7 @@ public class SendAllMessagesServlet extends BaseServlet {
         Message message = new Message.Builder()
 		.timeToLive(3)
         .delayWhileIdle(true)
-        .addData("message", id2)
+        .addData("message2", id2)
         .build();
         Result result = sender.send(message, registrationId, 5);
         results = Arrays.asList(result);
@@ -98,7 +98,7 @@ public class SendAllMessagesServlet extends BaseServlet {
         Message message = new Message.Builder()
 		.timeToLive(3)
         .delayWhileIdle(true)
-        .addData("message", id3)
+        .addData("message3", id3)
         .build();
         Result result = sender.send(message, registrationId, 5);
         results = Arrays.asList(result);
@@ -107,7 +107,7 @@ public class SendAllMessagesServlet extends BaseServlet {
         Message message = new Message.Builder()
 		.timeToLive(3)
         .delayWhileIdle(true)
-        .addData("message", id)
+        .addData("message4", id)
         .build();
         MulticastResult result = sender.send(message, devices, 5);
         results = result.getResults();
