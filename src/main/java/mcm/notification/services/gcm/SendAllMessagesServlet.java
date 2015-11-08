@@ -114,7 +114,7 @@ public class SendAllMessagesServlet extends BaseServlet {
         results = result.getResults();
       }
       // analyze the results
-      for (int i = 0; i < devices.size(); i++) {
+      for (int i = 0; i < results.size(); i++) {
         Result result = results.get(i);
         if (result.getMessageId() != null) {
           status.append("Succesfully sent message to device #").append(i);

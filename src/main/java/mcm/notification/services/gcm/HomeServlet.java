@@ -62,11 +62,11 @@ public class HomeServlet extends BaseServlet {
       out.print("</form>");
 	  out.print("<form name='form_2' method='POST' action='sendAll'>");
 	  out.print("<input type='text' name='To Device 2'/>");
-      out.print("<input type='submit' value='Send To Device 3' />");
+      out.print("<input type='submit' value='Send To Device 2' />");
       out.print("</form>");
 	  out.print("<form name='form_3' method='POST' action='sendAll'>");
 	  out.print("<input type='text' name='To Device 3'/>");
-      out.print("<input type='submit' value='Send To device 3' />");
+      out.print("<input type='submit' value='Send To Device 3' />");
       out.print("</form>");
 	  out.print("<form name='form_all' method='POST' action='sendAll'>");
 	  out.print("<input type='text' name='kulule'/>");
