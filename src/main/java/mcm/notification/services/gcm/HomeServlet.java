@@ -56,17 +56,21 @@ public class HomeServlet extends BaseServlet {
       out.print("<h2>No devices registered!</h2>");
     } else {
       out.print("<h2>" + devices.size() + " device(s) registered!</h2>");
-      out.print("<form name='form_all' method='POST' action='sendAll'>");
-	  out.print("<input type='text' name='eesnimi'/>");
-      out.print("<input type='submit' value='Send Message' />");
+      out.print("<form name='form_1' method='POST' action='sendAll'>");
+	  out.print("<input type='text' name='To device 1'/>");
+      out.print("<input type='submit' value='Send To Device 1' />");
       out.print("</form>");
-	  out.print("<form name='form_henri' method='POST' action='sendAll'>");
-	  out.print("<input type='text' name='henrile'/>");
-      out.print("<input type='submit' value='Send to Henri' />");
+	  out.print("<form name='form_2' method='POST' action='sendAll'>");
+	  out.print("<input type='text' name='To Device 2'/>");
+      out.print("<input type='submit' value='Send To Device 3' />");
       out.print("</form>");
-	  out.print("<form name='form_kulur' method='POST' action='sendAll'>");
+	  out.print("<form name='form_3' method='POST' action='sendAll'>");
+	  out.print("<input type='text' name='To Device 3'/>");
+      out.print("<input type='submit' value='Send To device 3' />");
+      out.print("</form>");
+	  out.print("<form name='form_all' method='POST' action='sendAll'>");
 	  out.print("<input type='text' name='kulule'/>");
-      out.print("<input type='submit' value='Send to Kulu' />");
+      out.print("<input type='submit' value='Send To All Devices' />");
       out.print("</form>");
     }
     out.print("</body></html>");

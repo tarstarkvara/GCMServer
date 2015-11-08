@@ -69,10 +69,11 @@ public class SendAllMessagesServlet extends BaseServlet {
       List<Result> results;
       // NOTE: check below is for demonstration purposes; a real application
       // could always send a multicast, even for just one recipient
-	  String id = req.getParameter("eesnimi");
-	  String id2 = req.getParameter("henrile");
-	  String id3 = req.getParameter("kulule");
-      if (id != null && id2 == null ) {
+	  String id = req.getParameter("To Device 1");
+	  String id2 = req.getParameter("To Device 2");
+	  String id3 = req.getParameter("To Device 3");
+	  String id4 = req.getParameter("To All Devices");
+      if (id != null) {
         // send a single message using plain post
         String registrationId = devices.get(0);
         Message message = new Message.Builder()
@@ -82,23 +83,23 @@ public class SendAllMessagesServlet extends BaseServlet {
         .build();
         Result result = sender.send(message, registrationId, 5);
         results = Arrays.asList(result);
-      } else if (id2 != null && id == null) {
+      } else if (id2 != null) {
         // send a single message using plain post
         String registrationId = devices.get(1);
         Message message = new Message.Builder()
 		.timeToLive(3)
         .delayWhileIdle(true)
-        .addData("message2", id2)
+        .addData("message", id2)
         .build();
         Result result = sender.send(message, registrationId, 5);
         results = Arrays.asList(result);
-      } else if (id3 != null && id == null) {
+      } else if (id3 != null) {
         // send a single message using plain post
         String registrationId = devices.get(2);
         Message message = new Message.Builder()
 		.timeToLive(3)
         .delayWhileIdle(true)
-        .addData("message3", id3)
+        .addData("message", id3)
         .build();
         Result result = sender.send(message, registrationId, 5);
         results = Arrays.asList(result);
@@ -107,7 +108,7 @@ public class SendAllMessagesServlet extends BaseServlet {
         Message message = new Message.Builder()
 		.timeToLive(3)
         .delayWhileIdle(true)
-        .addData("message4", id)
+        .addData("message", id4)
         .build();
         MulticastResult result = sender.send(message, devices, 5);
         results = result.getResults();
