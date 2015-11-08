@@ -1,0 +1,1 @@
+Test cases created with Selenium IDE Firefox plugin.
