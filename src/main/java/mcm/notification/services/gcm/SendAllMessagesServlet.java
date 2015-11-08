@@ -77,7 +77,11 @@ public class SendAllMessagesServlet extends BaseServlet {
         results = Arrays.asList(result);
       } else {
         // send a multicast message using JSON
-        Message message = new Message.Builder().build();
+        Message message = new Message.Builder()
+		.timeToLive(3)
+        .delayWhileIdle(true)
+        .addData("message", "message is created at builder")
+        .build();
         MulticastResult result = sender.send(message, devices, 5);
         results = result.getResults();
       }
