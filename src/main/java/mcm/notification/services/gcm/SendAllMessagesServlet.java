@@ -145,6 +145,9 @@ public class SendAllMessagesServlet extends BaseServlet {
             String regId = devices.get(i);
             Datastore.unregister(regId);
           } else {
+			for (int j = 0; j < devices.size(); j++){
+		      status.append(devices.get(i).toString());
+			}
             status.append("Error sending message to device #").append(i)
                 .append(": ").append(error);
           }
