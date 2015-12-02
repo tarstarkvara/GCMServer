@@ -126,7 +126,9 @@ public class SendAllMessagesServlet extends BaseServlet {
       for (int i = 0; i < results.size(); i++) {
         Result result = results.get(i);
         if (result.getMessageId() != null) {
-		  status.append(devices.toString());
+		  for (int j = 0; j < devices.size(); j++){
+            status.append(devices.get(i).toString());
+          }
           status.append("Succesfully sent message to device #").append(i);
           String canonicalRegId = result.getCanonicalRegistrationId();
           if (canonicalRegId != null) {
