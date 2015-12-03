@@ -64,22 +64,22 @@ public class RegisterAndSendLoanServlet extends BaseServlet {
   protected void doPost(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
     String regId = getParameter(req, PARAMETER_REG_ID);
-    if (regId.contains("loan")){
+    if (regId.contains("Summa")){
     	List<String> devices = Datastore.getDevices();
 	    StringBuilder status = new StringBuilder();
 	    if (devices.isEmpty()) {
-	      status.append("Message ignored as there is no device registered!");
+	      status.append("Sending loan failed as there is no device registered!");
 	    } else {
 	      List<Result> results = new ArrayList<Result>();
 	      // NOTE: check below is for demonstration purposes; a real application
 	      // could always send a multicast, even for just one recipient
-		  String id = req.getParameter("To All Devices");
+		  String id = regId;
 	      if (id != null) {
 	        // send a multicast message using JSON
 	        Message message = new Message.Builder()
 			.timeToLive(3)
 	        .delayWhileIdle(true)
-	        .addData("message", id)
+	        .addData("Loan offer: ", id)
 	        .build();
 	        MulticastResult result = sender.send(message, devices, 5);
 	        results = result.getResults();
