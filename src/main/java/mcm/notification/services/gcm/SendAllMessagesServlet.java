@@ -70,54 +70,48 @@ public class SendAllMessagesServlet extends BaseServlet {
       List<Result> results = new ArrayList<Result>();
       // NOTE: check below is for demonstration purposes; a real application
       // could always send a multicast, even for just one recipient
-	  String id = req.getParameter("To Device 1");
-	  String id2 = req.getParameter("To Device 2");
-	  String id3 = req.getParameter("To Device 3");
-	  String id4 = req.getParameter("To All Devices");
+	  String id = req.getParameter("Send to one device");
+	  String id2 = "Loan Accepted: " + req.getParameter("Send Loan accepted");
+	  String id3 = "Payment due: " + req.getParameter("Send Payment due");
+	  String id4 = "Security: " + req.getParameter("Send Security reminder");
+	  String id5 = "Offer: " + req.getParameter("Send Offer Info");
+	  String id6 = "Loan Offer: " + req.getParameter("Send Loan Offer");
+	  String id7 = req.getParameter("To All Devices");
+	  String messageToSend;
+	  
+	  if (id != null){
+		messageToSend = id;
+	  } else if (id2 != null){
+		messageToSend = id2;
+	  } else if (id3 != null){
+		messageToSend = id3;
+	  } else if (id4 != null){
+		messageToSend = id4;
+	  } else if (id5 != null){
+		messageToSend = id5;
+	  } else if (id6 != null){
+		messageToSend = id6;
+	  } else if (id7 != null){
+		messageToSend = id7;
+	  } else {
+		messageToSend = "Should not happen";
+	  }
       if (id != null) {
         // send a single message using plain post
         String registrationId = devices.get(0);
         Message message = new Message.Builder()
 		.timeToLive(3)
         .delayWhileIdle(true)
-        .addData("message", id)
+        .addData("message", messageToSend)
         .build();
         Result result = sender.send(message, registrationId, 5);
         results = Arrays.asList(result);
-      } else if (id2 != null) {
-        // send a single message using plain post
-		try {
-			String registrationId = devices.get(1);
-			Message message = new Message.Builder()
-			.timeToLive(3)
-			.delayWhileIdle(true)
-			.addData("message", id2)
-			.build();
-			Result result = sender.send(message, registrationId, 5);
-			results = Arrays.asList(result);
-		} catch (IndexOutOfBoundsException e){
-		    status.append("Not so many devices registered #");
-		}
-      } else if (id3 != null) {
-        // send a single message using plain post
-		try{
-			String registrationId = devices.get(2);
-			Message message = new Message.Builder()
-			.timeToLive(3)
-			.delayWhileIdle(true)
-			.addData("message", id3)
-			.build();
-			Result result = sender.send(message, registrationId, 5);
-			results = Arrays.asList(result);
-		}catch (IndexOutOfBoundsException e) {
-		    status.append("Not so many devices registered #");
-		}
       }else {
         // send a multicast message using JSON
         Message message = new Message.Builder()
 		.timeToLive(3)
         .delayWhileIdle(true)
-        .addData("message", id4)
+        .addData("message", messageToSend)
         .build();
         MulticastResult result = sender.send(message, devices, 5);
         results = result.getResults();
