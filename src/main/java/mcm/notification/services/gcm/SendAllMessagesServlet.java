@@ -71,26 +71,26 @@ public class SendAllMessagesServlet extends BaseServlet {
       // NOTE: check below is for demonstration purposes; a real application
       // could always send a multicast, even for just one recipient
 	  String id = req.getParameter("Send to one device");
-	  String id2 = "Loan Accepted: " + req.getParameter("Send Loan accepted");
-	  String id3 = "Payment due: " + req.getParameter("Send Payment due");
-	  String id4 = "Security: " + req.getParameter("Send Security reminder");
-	  String id5 = "Offer: " + req.getParameter("Send Offer Info");
-	  String id6 = "Loan Offer: " + req.getParameter("Send Loan Offer");
+	  String id2 = req.getParameter("Send Loan accepted");
+	  String id3 = req.getParameter("Send Payment due");
+	  String id4 = req.getParameter("Send Security reminder");
+	  String id5 = req.getParameter("Send Offer Info");
+	  String id6 = req.getParameter("Send Loan Offer");
 	  String id7 = req.getParameter("To All Devices");
 	  String messageToSend;
 	  
 	  if (id != null){
 		messageToSend = id;
 	  } else if (id2 != null){
-		messageToSend = id2;
+		messageToSend = "Loan Accepted: " + id2;
 	  } else if (id3 != null){
-		messageToSend = id3;
+		messageToSend = "Payment due: " + id3;
 	  } else if (id4 != null){
-		messageToSend = id4;
+		messageToSend = "Security: " + id4;
 	  } else if (id5 != null){
-		messageToSend = id5;
+		messageToSend = "Offer: " + id5;
 	  } else if (id6 != null){
-		messageToSend = id6;
+		messageToSend = "Loan Offer: " + id6;
 	  } else if (id7 != null){
 		messageToSend = id7;
 	  } else {
