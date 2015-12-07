@@ -1,2 +1,3 @@
 Test cases created with Selenium IDE Firefox plugin.
 To run tests, open IDE plugin and run Release_4_Test_Suite.
+For all tests to be meaningfully runnable, tests must be ran with both no devices registered and at least one device registered.
