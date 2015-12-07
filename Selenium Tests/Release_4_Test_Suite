@@ -10,10 +10,13 @@
 <tr><td><b>Test Suite</b></td></tr>
 <tr><td><a href="Message on Dev unregistered.html">Message on Dev unregistered</a></td></tr>
 <tr><td><a href="Check Dev Unregistered.html">Check Dev Unregistered</a></td></tr>
+<tr><td><a href="Send Offer Info.html">Send Offer Info</a></td></tr>
+<tr><td><a href="Send Loan Offer.html">Send Loan Offer</a></td></tr>
+<tr><td><a href="Send Message To First Device.html">Send Message To First Device</a></td></tr>
+<tr><td><a href="Send Loan Accepted.html">Send Loan Accepted</a></td></tr>
+<tr><td><a href="Send Security Reminder.html">Send Security Reminder</a></td></tr>
+<tr><td><a href="Send Payment due.html">Send Payment due</a></td></tr>
 <tr><td><a href="Send Message To All Devs.html">Send Message To All Devs</a></td></tr>
-<tr><td><a href="Send Message To Dev 2.html">Send Message To Dev 2</a></td></tr>
-<tr><td><a href="Send Message To Device 1.html">Send Message To Device 1</a></td></tr>
-<tr><td><a href="Send Message To Device 3.html">Send Message To Device 3</a></td></tr>
 </tbody></table>
 </body>
 </html>
